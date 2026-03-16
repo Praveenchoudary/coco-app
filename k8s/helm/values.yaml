@@ -1,0 +1,67 @@
+namespace: default
+
+backend:
+  name: coconut-backend
+  replicaCount: 2
+  image:
+    repository: praveen22233/natucoconut-app_backend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    name: backend
+    type: ClusterIP
+    port: 5000
+    targetPort: 5000
+  env:
+    DB_HOST: mysql
+    DB_USER: root
+    DB_PORT: "3306"
+    PORT: "5000"
+
+frontend:
+  name: coconut-frontend
+  replicaCount: 2
+  image:
+    repository: praveen22233/natucoconut-app_frontend
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    name: frontend
+    type: ClusterIP
+    port: 80
+    targetPort: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  name: coconut-ingress
+  host: coconut.praveens.online
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+
+mysql:
+  name: mysql
+  replicaCount: 1
+  image:
+    repository: mysql
+    tag: "8.0"
+    pullPolicy: IfNotPresent
+  service:
+    port: 3306
+  pvc:
+    name: mysql-pvc
+    storage: 5Gi
+  database: coconut_store
+
+secret:
+  name: coconut-secrets
+  dbRootPassword: coconut123
+  dbName: coconut_store
+  jwtSecret: coconutsecret2024_superSecure!
+  rzpKeyId: rzp_test_CHANGE_ME
+  rzpKeySecret: CHANGE_ME
+  rzpWebhookSecret: CHANGE_ME
+  upiId: natucoconut@upi
+  upiName: NatuCoconut

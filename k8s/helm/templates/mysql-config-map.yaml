@@ -1,0 +1,114 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-init-scripts
+  namespace: {{ .Values.namespace }}
+data:
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS coconut_store
+      CHARACTER SET utf8mb4
+      COLLATE utf8mb4_unicode_ci;
+
+    USE coconut_store;
+
+    -- Users table
+    CREATE TABLE IF NOT EXISTS users (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(100) NOT NULL,
+      mobile VARCHAR(15) NOT NULL UNIQUE,
+      password VARCHAR(255) NOT NULL,
+      role ENUM('customer','admin') DEFAULT 'customer',
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+    -- Products table
+    CREATE TABLE IF NOT EXISTS products (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(150) NOT NULL,
+      description TEXT,
+      price DECIMAL(10,2) NOT NULL,
+      bulk_price DECIMAL(10,2),
+      unit VARCHAR(40) NOT NULL,
+      min_qty INT DEFAULT 3,
+      bulk_min_qty INT DEFAULT 100,
+      stock INT DEFAULT 200,
+      image_url VARCHAR(255),
+      category VARCHAR(50),
+      is_bulk TINYINT(1) DEFAULT 0,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+    -- Orders table
+    CREATE TABLE IF NOT EXISTS orders (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      user_id INT NOT NULL,
+      total_amount DECIMAL(10,2) NOT NULL,
+      order_type ENUM('normal','bulk') DEFAULT 'normal',
+      event_name VARCHAR(200),
+      event_date DATE,
+      delivery_name VARCHAR(100) NOT NULL,
+      delivery_mobile VARCHAR(15) NOT NULL,
+      delivery_address TEXT NOT NULL,
+      delivery_city VARCHAR(100) NOT NULL,
+      delivery_district VARCHAR(100) NOT NULL,
+      delivery_pincode VARCHAR(10) NOT NULL,
+      payment_status ENUM('pending','paid','failed') DEFAULT 'pending',
+      payment_method VARCHAR(50) DEFAULT 'cod',
+      payment_ref VARCHAR(100),
+      order_status ENUM('placed','processing','shipped','delivered','cancelled') DEFAULT 'placed',
+      special_instructions TEXT,
+      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      INDEX idx_user_id (user_id),
+      INDEX idx_order_status (order_status),
+      INDEX idx_created_at (created_at)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+    -- Order items table
+    CREATE TABLE IF NOT EXISTS order_items (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      order_id INT NOT NULL,
+      product_id INT NOT NULL,
+      quantity INT NOT NULL,
+      price DECIMAL(10,2) NOT NULL,
+      FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+      FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE RESTRICT
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+    -- Admin user (password: admin123)
+    INSERT IGNORE INTO users (name, mobile, password, role) VALUES
+    ('Admin', '9999999999', '$2b$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+
+    -- Products seed data
+    INSERT IGNORE INTO products
+      (name, description, price, bulk_price, unit, min_qty, bulk_min_qty, stock, image_url, category, is_bulk)
+    VALUES
+    (
+      'Tender Coconut (Ilaneer)',
+      'Farm-fresh green tender coconuts. Hand-picked daily from Tamil Nadu farms. Rich in natural electrolytes, vitamins and minerals. Sweet refreshing water inside.',
+      45.00, 38.00, 'per piece', 3, 50, 500, '/images/tender-coconut.svg', 'fresh', 0
+    ),
+    (
+      'Fresh Coconut Water (200ml)',
+      'Pure fresh coconut water extracted from tender coconuts. No added sugar, no preservatives. Comes in 200ml sealed packs. Ideal for functions and daily use.',
+      28.00, 22.00, 'per 200ml pack', 3, 100, 300, '/images/coconut-water.svg', 'fresh', 0
+    ),
+    (
+      'Cold-Pressed Coconut Oil 500ml',
+      'Traditional chekku wood-press extracted virgin coconut oil. First cold press, completely unrefined. No heat, no chemicals. Rich natural coconut aroma.',
+      285.00, 260.00, 'per 500ml bottle', 3, 20, 150, '/images/coconut-oil.svg', 'oil', 0
+    ),
+    (
+      'Premium Coconut Oil 1 Litre',
+      'Bestselling 1 litre cold-pressed coconut oil. Same farm-fresh purity as 500ml but better value for families. Traditional wood-press method.',
+      530.00, 490.00, 'per 1 litre bottle', 3, 10, 120, '/images/coconut-oil.svg', 'oil', 0
+    ),
+    (
+      'Bulk Coconut Oil 2 Litre Pack',
+      'Best value 2 litre family pack of cold-pressed coconut oil. FSSAI certified. Wood-pressed, unrefined. Perfect for large families and catering.',
+      980.00, 900.00, 'per 2 litre pack', 1, 5, 80, '/images/coconut-oil.svg', 'oil', 0
+    ),
+    (
+      'Bulk Tender Coconuts - Marriage and Function Pack',
+      'Special bulk order for weddings, functions, temple events and corporate gatherings. Special pricing for 50+ pieces. Coordinated delivery with advance booking.',
+      38.00, 32.00, 'per piece (bulk)', 50, 50, 2000, '/images/bulk-coconut.svg', 'bulk', 1
+    );
