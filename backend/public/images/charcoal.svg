@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <radialGradient id="bg5" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#efebe9"/>
+      <stop offset="100%" stop-color="#d7ccc8"/>
+    </radialGradient>
+    <radialGradient id="coal1" cx="35%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#616161"/>
+      <stop offset="60%" stop-color="#212121"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="coal2" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#757575"/>
+      <stop offset="60%" stop-color="#424242"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="coal3" cx="45%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#546e7a"/>
+      <stop offset="60%" stop-color="#263238"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg5)"/>
+  <!-- Coconut tree hint -->
+  <ellipse cx="50" cy="35" rx="110" ry="13" fill="#388e3c" transform="rotate(-25,50,35)" opacity="0.35"/>
+  <ellipse cx="355" cy="40" rx="105" ry="12" fill="#2e7d32" transform="rotate(20,355,40)" opacity="0.3"/>
+  <!-- Heat glow background -->
+  <radialGradient id="glow" cx="50%" cy="80%" r="40%">
+    <stop offset="0%" stop-color="#ff6f00" stop-opacity="0.3"/>
+    <stop offset="100%" stop-color="#ff6f00" stop-opacity="0"/>
+  </radialGradient>
+  <ellipse cx="200" cy="240" rx="160" ry="60" fill="url(#glow)"/>
+  <!-- Shadow -->
+  <ellipse cx="200" cy="250" rx="130" ry="16" fill="rgba(0,0,0,0.25)"/>
+  <!-- Charcoal pieces pile -->
+  <!-- Back row -->
+  <ellipse cx="140" cy="195" rx="52" ry="44" fill="url(#coal1)" transform="rotate(-15,140,195)"/>
+  <ellipse cx="260" cy="192" rx="48" ry="42" fill="url(#coal2)" transform="rotate(12,260,192)"/>
+  <!-- Middle row -->
+  <ellipse cx="195" cy="185" rx="56" ry="46" fill="url(#coal3)" transform="rotate(-5,195,185)"/>
+  <!-- Front piece -->
+  <ellipse cx="200" cy="215" rx="62" ry="38" fill="url(#coal1)" transform="rotate(3,200,215)"/>
+  <!-- Shine/texture on charcoal -->
+  <ellipse cx="185" cy="200" rx="18" ry="12" fill="rgba(255,255,255,0.07)" transform="rotate(-10,185,200)"/>
+  <ellipse cx="230" cy="192" rx="14" ry="9" fill="rgba(255,255,255,0.05)" transform="rotate(8,230,192)"/>
+  <!-- Ember glow dots -->
+  <circle cx="175" cy="220" r="4" fill="#ff6f00" opacity="0.8"/>
+  <circle cx="220" cy="224" r="3" fill="#ff8f00" opacity="0.7"/>
+  <circle cx="197" cy="228" r="2.5" fill="#ffa000" opacity="0.9"/>
+  <circle cx="240" cy="210" r="3" fill="#ff6f00" opacity="0.6"/>
+  <!-- Coconut shell texture lines -->
+  <path d="M155,195 Q180,185 205,195" stroke="rgba(255,255,255,0.08)" stroke-width="2" fill="none"/>
+  <path d="M190,178 Q215,170 238,180" stroke="rgba(255,255,255,0.06)" stroke-width="2" fill="none"/>
+  <!-- Label -->
+  <rect x="90" y="258" width="220" height="30" rx="15" fill="#37474f"/>
+  <text x="200" y="277" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="white">🔥 Coconut Shell Charcoal</text>
+</svg>

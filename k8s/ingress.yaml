@@ -1,0 +1,64 @@
+# ── Ingress for domain-based access (coconut.local or your domain) ────────────
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: coconut-ingress
+  namespace: default
+  annotations:
+    # IMPORTANT: No rewrite-target here — it breaks /api/ path stripping
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: coconut.praveens.online
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend
+                port:
+                  number: 5000
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend
+                port:
+                  number: 80
+---
+# ── NodePort Service for direct IP access (e.g. 116.204.173.206:30080) ────────
+# Use this when you access via IP address instead of domain name
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend-nodeport
+  namespace: default
+spec:
+  selector:
+    app: coconut-frontend
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+      nodePort: 30080
+  type: NodePort
+---
+# ── NodePort for backend API (direct IP access) ───────────────────────────────
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-nodeport
+  namespace: default
+spec:
+  selector:
+    app: coconut-backend
+  ports:
+    - name: api
+      port: 5000
+      targetPort: 5000
+      nodePort: 30500
+  type: NodePort

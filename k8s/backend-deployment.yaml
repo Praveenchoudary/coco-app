@@ -1,0 +1,113 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coconut-backend
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: coconut-backend
+  template:
+    metadata:
+      labels:
+        app: coconut-backend
+    spec:
+      # Wait for MySQL to be ready before starting backend pods
+      initContainers:
+        - name: wait-for-mysql
+          image: busybox:1.35
+          command:
+            - sh
+            - -c
+            - |
+              echo "Waiting for MySQL..."
+              until nc -z mysql 3306; do
+                echo "MySQL not ready, waiting 5s..."
+                sleep 5
+              done
+              echo "MySQL is up! Starting backend..."
+              sleep 5
+      containers:
+        - name: backend
+          image:  praveen22233/natucoconut-app_backend
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: "mysql"
+            - name: DB_USER
+              value: "root"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: coconut-secrets
+                  key: db-name
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: coconut-secrets
+                  key: db-root-password
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: coconut-secrets
+                  key: jwt-secret
+            - name: RZP_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: coconut-secrets
+                  key: rzp-key-id
+            - name: RZP_KEY_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: coconut-secrets
+                  key: rzp-key-secret
+            - name: RZP_WEBHOOK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: coconut-secrets
+                  key: rzp-webhook-secret
+            - name: UPI_ID
+              valueFrom:
+                secretKeyRef:
+                  name: coconut-secrets
+                  key: upi-id
+            - name: UPI_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: coconut-secrets
+                  key: upi-name
+            - name: PORT
+              value: "5000"
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 5000
+            initialDelaySeconds: 20
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 5000
+            initialDelaySeconds: 40
+            periodSeconds: 20
+            timeoutSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: default
+spec:
+  selector:
+    app: coconut-backend
+  ports:
+    - port: 5000
+      targetPort: 5000
+  type: ClusterIP

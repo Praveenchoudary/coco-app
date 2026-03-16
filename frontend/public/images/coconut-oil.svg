@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fffde7"/>
+      <stop offset="100%" stop-color="#fff8e1"/>
+    </radialGradient>
+    <linearGradient id="jar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.97)"/>
+      <stop offset="25%" stop-color="rgba(255,251,230,0.90)"/>
+      <stop offset="70%" stop-color="rgba(255,243,200,0.82)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.94)"/>
+    </linearGradient>
+    <linearGradient id="oil" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,252,210,0.88)"/>
+      <stop offset="100%" stop-color="rgba(255,200,50,0.72)"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg2)"/>
+  <ellipse cx="200" cy="362" rx="90" ry="16" fill="rgba(0,0,0,0.12)"/>
+  <!-- jar body -->
+  <rect x="118" y="148" width="164" height="202" rx="22" fill="url(#jar)" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+  <!-- oil inside -->
+  <rect x="126" y="202" width="148" height="140" rx="10" fill="url(#oil)"/>
+  <!-- lid -->
+  <rect x="108" y="112" width="184" height="42" rx="14" fill="#2e7d32"/>
+  <rect x="100" y="122" width="200" height="24" rx="12" fill="#388e3c"/>
+  <rect x="118" y="126" width="76" height="9" rx="4.5" fill="rgba(255,255,255,0.22)"/>
+  <!-- label -->
+  <rect x="130" y="216" width="140" height="100" rx="10" fill="rgba(255,255,255,0.94)" stroke="#f9a825" stroke-width="1.5"/>
+  <text x="200" y="244" text-anchor="middle" font-family="Arial,sans-serif" font-size="11" font-weight="bold" fill="#1b5e20" letter-spacing="0.5">COLD PRESSED</text>
+  <text x="200" y="262" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="900" fill="#1b5e20">VIRGIN</text>
+  <text x="200" y="279" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="900" fill="#1b5e20">COCONUT OIL</text>
+  <text x="200" y="296" text-anchor="middle" font-family="Arial,sans-serif" font-size="9.5" fill="#888">100% Pure · No Chemicals</text>
+  <rect x="126" y="158" width="9" height="105" rx="4.5" fill="rgba(255,255,255,0.42)"/>
+  <!-- mini coconut on lid -->
+  <circle cx="310" cy="168" r="24" fill="#66bb6a"/>
+  <circle cx="310" cy="160" r="15" fill="#a5d6a7"/>
+  <circle cx="310" cy="155" r="9" fill="#e8f5e9"/>
+  <path d="M294,158 Q310,148 326,158" stroke="#2e7d32" stroke-width="1.5" fill="none"/>
+</svg>

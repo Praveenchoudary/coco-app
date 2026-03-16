@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <radialGradient id="bg4" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#fffde7"/>
+      <stop offset="100%" stop-color="#fff3e0"/>
+    </radialGradient>
+    <linearGradient id="bottle2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#d6d6d6"/>
+      <stop offset="25%" stop-color="#fafafa"/>
+      <stop offset="50%" stop-color="#ffffff"/>
+      <stop offset="75%" stop-color="#f5f5f5"/>
+      <stop offset="100%" stop-color="#bdbdbd"/>
+    </linearGradient>
+    <linearGradient id="oil2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff9c4"/>
+      <stop offset="50%" stop-color="#ffe57f"/>
+      <stop offset="100%" stop-color="#f57f17"/>
+    </linearGradient>
+    <linearGradient id="cap2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6d3a1f"/>
+      <stop offset="100%" stop-color="#3e2723"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg4)"/>
+  <ellipse cx="70" cy="230" r="40" fill="#8d6e63" opacity="0.25"/>
+  <ellipse cx="330" cy="220" r="38" fill="#8d6e63" opacity="0.2"/>
+  <ellipse cx="40" cy="55" rx="105" ry="13" fill="#66bb6a" transform="rotate(-22,40,55)" opacity="0.3"/>
+  <ellipse cx="360" cy="65" rx="100" ry="12" fill="#4caf50" transform="rotate(16,360,65)" opacity="0.3"/>
+  <!-- Shadow -->
+  <ellipse cx="200" cy="263" rx="62" ry="10" fill="rgba(0,0,0,0.15)"/>
+  <!-- 1L bottle — taller and wider -->
+  <rect x="145" y="95" width="110" height="162" rx="14" fill="url(#bottle2)"/>
+  <rect x="152" y="128" width="96" height="126" rx="9" fill="url(#oil2)" opacity="0.88"/>
+  <ellipse cx="200" cy="128" rx="48" ry="6" fill="rgba(255,255,255,0.55)"/>
+  <rect x="156" y="105" width="14" height="148" rx="7" fill="rgba(255,255,255,0.35)"/>
+  <!-- Neck -->
+  <rect x="164" y="65" width="72" height="36" rx="10" fill="url(#bottle2)"/>
+  <!-- Brown Cap (1L style) -->
+  <rect x="158" y="46" width="84" height="24" rx="10" fill="url(#cap2)"/>
+  <rect x="164" y="50" width="72" height="7" rx="4" fill="rgba(255,255,255,0.15)"/>
+  <!-- Label -->
+  <rect x="152" y="136" width="96" height="100" rx="8" fill="white" opacity="0.92"/>
+  <rect x="152" y="136" width="96" height="8" rx="4" fill="#6d3a1f"/>
+  <text x="200" y="158" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#3e2723">COCONUT</text>
+  <text x="200" y="171" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#3e2723">OIL</text>
+  <text x="200" y="184" text-anchor="middle" font-family="Arial" font-size="9" fill="#555">Wood Pressed</text>
+  <text x="200" y="196" text-anchor="middle" font-family="Arial" font-size="9" fill="#555">1 Litre</text>
+  <circle cx="200" cy="216" r="14" fill="#fff8e1"/>
+  <text x="200" y="220" text-anchor="middle" font-family="Arial" font-size="10">🥥</text>
+  <!-- Bottom label -->
+  <rect x="100" y="270" width="200" height="24" rx="12" fill="#f57f17"/>
+  <text x="200" y="286" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">🫙 Coconut Oil — 1 Litre</text>
+</svg>

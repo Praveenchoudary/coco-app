@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#e8f5e9"/>
+      <stop offset="100%" stop-color="#c8e6c9"/>
+    </radialGradient>
+    <radialGradient id="coco1" cx="40%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#8d6e63"/>
+      <stop offset="60%" stop-color="#5d4037"/>
+      <stop offset="100%" stop-color="#3e2723"/>
+    </radialGradient>
+    <radialGradient id="coco2" cx="45%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#795548"/>
+      <stop offset="60%" stop-color="#4e342e"/>
+      <stop offset="100%" stop-color="#3e2723"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg)"/>
+  <!-- Leaves background -->
+  <ellipse cx="60" cy="40" rx="120" ry="18" fill="#388e3c" transform="rotate(-30,60,40)" opacity="0.7"/>
+  <ellipse cx="340" cy="50" rx="110" ry="16" fill="#2e7d32" transform="rotate(25,340,50)" opacity="0.6"/>
+  <ellipse cx="200" cy="20" rx="130" ry="14" fill="#43a047" transform="rotate(-10,200,20)" opacity="0.5"/>
+  <!-- Shadow -->
+  <ellipse cx="200" cy="248" rx="90" ry="14" fill="rgba(0,0,0,0.15)"/>
+  <!-- Main coconut left -->
+  <ellipse cx="150" cy="185" rx="72" ry="70" fill="url(#coco1)"/>
+  <!-- Fiber texture lines -->
+  <path d="M100,155 Q150,140 200,158" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M95,170 Q150,155 205,173" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M98,185 Q150,170 202,188" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M100,200 Q150,186 200,203" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M105,215 Q150,202 195,218" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <!-- Eye spots -->
+  <circle cx="138" cy="158" r="7" fill="#2c1a0e"/>
+  <circle cx="157" cy="153" r="7" fill="#2c1a0e"/>
+  <circle cx="148" cy="168" r="7" fill="#2c1a0e"/>
+  <!-- Main coconut right -->
+  <ellipse cx="255" cy="190" rx="68" ry="66" fill="url(#coco2)"/>
+  <path d="M205,162 Q255,148 305,165" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M200,178 Q255,163 310,180" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M202,194 Q255,179 308,196" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M205,210 Q255,196 305,212" stroke="#6d4c41" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <circle cx="244" cy="163" r="6" fill="#2c1a0e"/>
+  <circle cx="262" cy="158" r="6" fill="#2c1a0e"/>
+  <circle cx="253" cy="172" r="6" fill="#2c1a0e"/>
+  <!-- Label -->
+  <rect x="100" y="258" width="200" height="32" rx="16" fill="#2d7a2d"/>
+  <text x="200" y="279" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="white">🥥 Fresh Coconut</text>
+</svg>

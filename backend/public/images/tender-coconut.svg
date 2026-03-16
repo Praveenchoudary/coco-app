@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300">
+  <defs>
+    <radialGradient id="bg2" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#f1f8e9"/>
+      <stop offset="100%" stop-color="#dcedc8"/>
+    </radialGradient>
+    <radialGradient id="tender" cx="40%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#aed581"/>
+      <stop offset="50%" stop-color="#7cb342"/>
+      <stop offset="100%" stop-color="#558b2f"/>
+    </radialGradient>
+    <radialGradient id="topcut" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f5f5f5"/>
+      <stop offset="100%" stop-color="#e0e0e0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bg2)"/>
+  <!-- Background leaves -->
+  <ellipse cx="50" cy="30" rx="130" ry="15" fill="#66bb6a" transform="rotate(-25,50,30)" opacity="0.5"/>
+  <ellipse cx="360" cy="45" rx="120" ry="14" fill="#4caf50" transform="rotate(20,360,45)" opacity="0.5"/>
+  <!-- Wooden board -->
+  <rect x="60" y="220" width="280" height="55" rx="8" fill="#a1887f"/>
+  <rect x="60" y="220" width="280" height="8" rx="4" fill="#bcaaa4"/>
+  <line x1="80" y1="228" x2="80" y2="275" stroke="#8d6e63" stroke-width="1" opacity="0.4"/>
+  <line x1="140" y1="228" x2="140" y2="275" stroke="#8d6e63" stroke-width="1" opacity="0.4"/>
+  <line x1="200" y1="228" x2="200" y2="275" stroke="#8d6e63" stroke-width="1" opacity="0.4"/>
+  <line x1="260" y1="228" x2="260" y2="275" stroke="#8d6e63" stroke-width="1" opacity="0.4"/>
+  <line x1="320" y1="228" x2="320" y2="275" stroke="#8d6e63" stroke-width="1" opacity="0.4"/>
+  <!-- Shadow -->
+  <ellipse cx="200" cy="228" rx="75" ry="10" fill="rgba(0,0,0,0.2)"/>
+  <!-- Tender coconut body -->
+  <ellipse cx="200" cy="155" rx="78" ry="88" fill="url(#tender)"/>
+  <!-- Texture shading -->
+  <ellipse cx="175" cy="130" rx="30" ry="40" fill="rgba(255,255,255,0.15)"/>
+  <!-- Cut top (flat) -->
+  <ellipse cx="200" cy="80" rx="38" ry="15" fill="url(#topcut)"/>
+  <ellipse cx="200" cy="80" rx="30" ry="10" fill="#f0f0f0"/>
+  <!-- Straw hole -->
+  <circle cx="200" cy="80" r="6" fill="#bdbdbd"/>
+  <rect x="196" y="20" width="8" height="65" rx="4" fill="#e0e0e0" opacity="0.8"/>
+  <!-- Straw -->
+  <rect x="197" y="15" width="6" height="70" rx="3" fill="#ffe082"/>
+  <rect x="197" y="15" width="6" height="4" rx="2" fill="#ffca28"/>
+  <!-- Label -->
+  <rect x="85" y="235" width="230" height="28" rx="14" fill="#388e3c"/>
+  <text x="200" y="254" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="white">🌿 Tender Coconut (Ilaneer)</text>
+</svg>

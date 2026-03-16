@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#e8f5e9"/>
+  <defs>
+    <radialGradient id="cg" cx="38%" cy="33%" r="62%">
+      <stop offset="0%" stop-color="#c8e6c9"/>
+      <stop offset="35%" stop-color="#66bb6a"/>
+      <stop offset="75%" stop-color="#388e3c"/>
+      <stop offset="100%" stop-color="#1b5e20"/>
+    </radialGradient>
+    <radialGradient id="sh" cx="28%" cy="26%" r="30%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.55)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f1f8e9"/>
+      <stop offset="100%" stop-color="#dcedc8"/>
+    </radialGradient>
+  </defs>
+  <circle cx="200" cy="200" r="190" fill="url(#bg)"/>
+  <ellipse cx="200" cy="340" rx="118" ry="18" fill="rgba(0,0,0,0.13)"/>
+  <ellipse cx="200" cy="218" rx="148" ry="150" fill="url(#cg)"/>
+  <ellipse cx="155" cy="162" rx="52" ry="46" fill="url(#sh)"/>
+  <!-- stem -->
+  <rect x="192" y="58" width="16" height="32" rx="8" fill="#2e7d32"/>
+  <ellipse cx="200" cy="72" rx="14" ry="9" fill="#1b5e20"/>
+  <!-- leaves -->
+  <path d="M200,62 Q172,28 138,12" stroke="#33691e" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M200,62 Q228,26 262,10" stroke="#33691e" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M200,62 Q185,16 182,0" stroke="#43a047" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M200,62 Q215,18 220,2" stroke="#43a047" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M200,62 Q152,42 128,30" stroke="#388e3c" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M200,62 Q248,44 272,32" stroke="#388e3c" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- texture -->
+  <path d="M105,195 Q148,175 200,180 Q252,185 295,200" stroke="rgba(0,0,0,0.07)" stroke-width="2.5" fill="none"/>
+  <path d="M98,238 Q145,218 200,224 Q255,230 302,248" stroke="rgba(0,0,0,0.055)" stroke-width="2" fill="none"/>
+  <path d="M108,278 Q152,260 200,266 Q250,272 292,288" stroke="rgba(0,0,0,0.04)" stroke-width="2" fill="none"/>
+</svg>
